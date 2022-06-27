@@ -1,0 +1,1288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="14.0">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>7.0</ProjectVersion>
+    <ToolchainName>com.Atmel.ARMGCC.C</ToolchainName>
+    <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
+    <avrdevice>ATSAME70Q21B</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>vcu</AssemblyName>
+    <Name>vcu</Name>
+    <RootNamespace>vcu</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <ResetRule>0</ResetRule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <EraseKey />
+    <AsfFrameworkConfig>
+      <framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.42.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <UsesExternalMakeFile>True</UsesExternalMakeFile>
+    <OutputDirectory>$(MSBuildProjectDirectory)\Release</OutputDirectory>
+    <BuildTarget>-j4 all RELEASE=1</BuildTarget>
+    <CleanTarget>clean RELEASE=1</CleanTarget>
+    <ExternalMakeFilePath>Makefile</ExternalMakeFilePath>
+    <ToolchainSettings>
+      <ArmGcc>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+</ArmGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <UsesExternalMakeFile>True</UsesExternalMakeFile>
+    <OutputDirectory>
+    </OutputDirectory>
+    <BuildTarget>-j4 all</BuildTarget>
+    <CleanTarget>clean</CleanTarget>
+    <ExternalMakeFilePath>Makefile</ExternalMakeFilePath>
+    <ToolchainSettings>
+      <ArmGcc>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+</ArmGcc>
+    </ToolchainSettings>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\analog_poll.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="app\main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="app\motor_controller.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="app\usb_cmdline.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\atmel_start.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\driver_init.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\examples\driver_examples.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_adc_async.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_atomic.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_can_async.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_delay.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_flash.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_gpio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_init.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_io.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_mci_os.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_sleep.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_usart_async.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_usart_os.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_usb_device.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\src\utils_assert.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\src\utils_event.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\src\utils_list.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\src\utils_ringbuffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\src\utils_syscalls.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\afec\hpl_afec.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\core\hpl_core_m7_base.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\core\hpl_init.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\efc\hpl_efc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\hsmci\hpl_hsmci.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\mcan\hpl_mcan.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\pmc\hpl_pmc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\pmc\hpl_sleep.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\uart\hpl_uart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\usart\hpl_usart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\usbhs\hpl_usbhs.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\xdmac\hpl_xdmac.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\armcc\Device\Source\system_same70q21b.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\gcc\gcc\startup_same70q21b.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\gcc\system_same70q21b.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\sd_mmc\sd_mmc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\sd_mmc_start.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\cdc\device\cdcdf_acm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\msc\device\mscdf.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\device\usbdc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\usb_protocol.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb_start.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\adc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\eeprom_emu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\log_msg.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\usb\usb.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\usb\usb_console.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\usb\usb_drive.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\utils_assert.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\param\param.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\param\param_db.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\sensor\sensor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\sensor\sensor_db.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="test\assert.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="test\eeprom.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\fatfs\ff.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\fatfs\ffsystem.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\fatfs\ffunicode.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\app_hooks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\croutine.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\event_groups.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\heap_1.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\list.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\port.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\queue.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\stream_buffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\tasks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\timers.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\hal_rtos\rtos_port.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\startup\startup_same70q21b.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\startup\system_same70q21b.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="app\analog_poll.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="app\motor_controller.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\atmel_start.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\atmel_start_pins.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\cmsis_armcc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\cmsis_armclang.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\cmsis_compiler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\cmsis_gcc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\cmsis_iccarm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\cmsis_version.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_armv8mbl.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_armv8mml.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_cm0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_cm0plus.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_cm1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_cm23.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_cm3.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_cm33.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_cm4.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_cm7.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_sc000.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\core_sc300.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\mpu_armv7.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\mpu_armv8.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\CMSIS\Core\Include\tz_context.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\conf_sd_mmc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\hpl_afec_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\hpl_efc_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\hpl_hsmci_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\hpl_mcan_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\hpl_pmc_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\hpl_uart_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\hpl_usart_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\hpl_usb_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\hpl_xdmac_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\peripheral_clk_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\config\usbd_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\driver_init.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\examples\driver_examples.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_adc_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_atomic.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_can_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_delay.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_flash.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_gpio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_init.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_io.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_mci_os.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_sleep.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_usart_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_usart_os.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_usb_device.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_adc_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_adc_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_can.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_can_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_core.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_delay.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_dma.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_ext_irq.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_flash.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_gpio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_init.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_irq.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_mci_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_mci_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_missing_features.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_reset.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_sleep.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_usart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_usart_async.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_usart_dma.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_usart_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_usb.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_usb_device.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_usb_host.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\compiler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\err_codes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\events.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\parts.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\utils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\utils_event.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\utils_increment_macro.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\utils_list.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\utils_repeat_macro.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\utils\include\utils_ringbuffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\core\hpl_core_port.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\mcan\hpl_mcan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\pio\hpl_gpio_base.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\pmc\hpl_pmc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\uart\hpl_uart_base.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\usart\hpl_usart_base.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\usbhs\hpl_usbhs_host.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_acc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_aes_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_afec_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_chipid_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_dacc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_efc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_gmac_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_gpbr_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_hsmci_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_i2sc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_icm_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_isi_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_lockbit_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_matrix_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_mcan_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_pio_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_pmc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_pwm_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_qspi_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_rstc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_rswdt_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_rtc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_rtt_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_sdramc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_smc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_spi_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_ssc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_supc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_tc_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_trng_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_twihs_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_uart_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_usart_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_usbhs_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_utmi_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_wdt_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hri\hri_xdmac_e70b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component-version.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\acc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\aes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\afec.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\chipid.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\dacc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\deprecated\tc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\deprecated\template.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\deprecated\usart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\deprecated\usbhs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\efc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\gmac.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\gpbr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\hsmci.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\i2sc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\icm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\isi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\matrix.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\mcan.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\pio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\pmc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\pwm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\qspi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\rstc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\rswdt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\rtc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\rtt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\sdramc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\smc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\spi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\ssc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\supc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\tc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\trng.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\twihs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\uart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\usart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\usbhs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\utmi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\wdt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\component\xdmac.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\acc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\aes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\afec0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\afec1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\chipid.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\dacc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\efc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\gmac.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\gpbr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\hsmci.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\i2sc0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\i2sc1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\icm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\isi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\matrix.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\mcan0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\mcan1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\pioa.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\piob.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\pioc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\piod.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\pioe.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\pmc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\pwm0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\pwm1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\qspi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\rstc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\rswdt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\rtc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\rtt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\sdramc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\smc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\spi0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\spi1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\ssc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\supc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\tc0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\tc1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\tc2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\tc3.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\trng.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\twihs0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\twihs1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\twihs2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\uart0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\uart1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\uart2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\uart3.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\uart4.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\usart0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\usart1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\usart2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\usbhs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\utmi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\wdt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\instance\xdmac.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\pio\same70j19b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\pio\same70j20b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\pio\same70j21b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\pio\same70n19b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\pio\same70n20b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\pio\same70n21b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\pio\same70q19b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\pio\same70q20b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\pio\same70q21b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\sam.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\same70j19b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\same70j20b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\same70j21b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\same70n19b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\same70n20b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\same70n21b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\same70q19b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\same70q20b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\same70q21b.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\same70b\include\system_same70.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\sd_mmc\sd_mmc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\sd_mmc\sd_mmc_protocol.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\sd_mmc_start.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\cdc\device\cdcdf_acm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\cdc\device\cdcdf_acm_desc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\cdc\usb_protocol_cdc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\msc\device\mscdf.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\msc\device\mscdf_desc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\msc\sbc_protocol.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\msc\spc_protocol.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\class\msc\usb_protocol_msc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\device\usbdc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\usb_atmel.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\usb_debug.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\usb_includes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb\usb_protocol.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\usb_start.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\adc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\eeprom_emu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\include\FreeRTOSConfig.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\include\memcpy_usb.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\include\utils_assert.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\log_msg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\usb\usb.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\usb\usb_console.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\usb\usb_desc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\usb\usb_drive.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\param\param.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\param\param_db.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\sensor\param_db_calib.c.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\sensor\param_db_calib.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\sensor\sensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="framework\sensor\sensor_db.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\fatfs\diskio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\fatfs\ff.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\fatfs\ffconf.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\croutine.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\deprecated_definitions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\event_groups.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\FreeRTOS.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\list.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\message_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\mpu_prototypes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\mpu_wrappers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\portable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\portmacro.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\projdefs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\queue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\semphr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\StackMacros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\stack_macros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\stream_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\freertos\include\timers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\hal_rtos\hal_rtos.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="thirdparty\hal_rtos\rtos_port.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="atstart\" />
+    <Folder Include="atstart\CMSIS\" />
+    <Folder Include="atstart\CMSIS\Core\" />
+    <Folder Include="atstart\CMSIS\Core\Include\" />
+    <Folder Include="atstart\config\" />
+    <Folder Include="atstart\examples\" />
+    <Folder Include="atstart\hal\" />
+    <Folder Include="atstart\hal\include\" />
+    <Folder Include="atstart\hal\src\" />
+    <Folder Include="atstart\hal\utils\" />
+    <Folder Include="atstart\hal\utils\include\" />
+    <Folder Include="atstart\hal\utils\src\" />
+    <Folder Include="atstart\hpl\" />
+    <Folder Include="atstart\hpl\afec\" />
+    <Folder Include="atstart\hpl\core\" />
+    <Folder Include="atstart\hpl\efc\" />
+    <Folder Include="atstart\hpl\hsmci\" />
+    <Folder Include="atstart\hpl\mcan\" />
+    <Folder Include="atstart\hpl\pio\" />
+    <Folder Include="atstart\hpl\pmc\" />
+    <Folder Include="atstart\hpl\uart\" />
+    <Folder Include="atstart\hpl\usart\" />
+    <Folder Include="atstart\hpl\usbhs\" />
+    <Folder Include="atstart\hpl\xdmac\" />
+    <Folder Include="atstart\hri\" />
+    <Folder Include="atstart\same70b\" />
+    <Folder Include="atstart\same70b\armcc\" />
+    <Folder Include="atstart\same70b\armcc\Device\" />
+    <Folder Include="atstart\same70b\armcc\Device\Source\" />
+    <Folder Include="atstart\same70b\gcc\" />
+    <Folder Include="atstart\same70b\gcc\gcc\" />
+    <Folder Include="atstart\same70b\include\" />
+    <Folder Include="atstart\same70b\include\component\" />
+    <Folder Include="atstart\same70b\include\component\deprecated\" />
+    <Folder Include="atstart\same70b\include\instance\" />
+    <Folder Include="atstart\same70b\include\pio\" />
+    <Folder Include="atstart\sd_mmc\" />
+    <Folder Include="atstart\usb\" />
+    <Folder Include="atstart\usb\class\" />
+    <Folder Include="atstart\usb\class\cdc\" />
+    <Folder Include="atstart\usb\class\cdc\device\" />
+    <Folder Include="atstart\usb\class\msc\" />
+    <Folder Include="atstart\usb\class\msc\device\" />
+    <Folder Include="atstart\usb\device\" />
+    <Folder Include="driver\" />
+    <Folder Include="driver\include\" />
+    <Folder Include="driver\usb\" />
+    <Folder Include="framework\" />
+    <Folder Include="framework\param\" />
+    <Folder Include="framework\sensor\" />
+    <Folder Include="test\" />
+    <Folder Include="thirdparty\" />
+    <Folder Include="thirdparty\fatfs\" />
+    <Folder Include="thirdparty\freertos\" />
+    <Folder Include="thirdparty\freertos\include\" />
+    <Folder Include="thirdparty\hal_rtos\" />
+    <Folder Include="thirdparty\startup\" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
