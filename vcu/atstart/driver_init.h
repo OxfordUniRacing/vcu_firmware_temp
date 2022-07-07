@@ -39,7 +39,11 @@ extern "C" {
 
 #include <hal_can_async.h>
 
+#include <hal_pwm.h>
+
 #define USART_EDBG_BUFFER_SIZE 16
+
+extern struct pwm_descriptor PWM_0;
 
 extern struct adc_async_descriptor ADC_0;
 
@@ -88,6 +92,10 @@ void CAN_0_PORT_init(void);
 void CAN_0_CLOCK_init(void);
 void CAN_0_init(void);
 void CAN_0_example(void);
+
+void PWM_0_PORT_init(void);
+void PWM_0_CLOCK_init(void);
+void PWM_0_init(void);
 
 /**
  * \brief Perform system initialization, initialize pins and clocks for

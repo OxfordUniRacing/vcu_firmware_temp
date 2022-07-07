@@ -92,10 +92,19 @@
     <Compile Include="atstart\atmel_start.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="atstart\config\hpl_pwm_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="atstart\driver_init.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="atstart\examples\driver_examples.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hal_pwm.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\include\hpl_pwm.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="atstart\hal\src\hal_adc_async.c">
@@ -123,6 +132,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="atstart\hal\src\hal_mci_os.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hal\src\hal_pwm.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="atstart\hal\src\hal_sleep.c">
@@ -174,6 +186,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="atstart\hpl\pmc\hpl_sleep.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\pwm\hpl_pwm.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="atstart\hpl\pwm\hpl_pwm_base.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="atstart\hpl\uart\hpl_uart.c">
@@ -1244,6 +1262,7 @@
     <Folder Include="atstart\hpl\efc\" />
     <Folder Include="atstart\hpl\hsmci\" />
     <Folder Include="atstart\hpl\mcan\" />
+    <Folder Include="atstart\hpl\pwm" />
     <Folder Include="atstart\hpl\pio\" />
     <Folder Include="atstart\hpl\pmc\" />
     <Folder Include="atstart\hpl\uart\" />

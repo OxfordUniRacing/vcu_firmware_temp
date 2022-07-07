@@ -33,7 +33,7 @@ void sensor_update_b(int ind, bool val) {
 void sensor_update_raw(int ind, int val) {
 	BOUNDS_CHECK(ind);
 	ASSERT(sensor_trans_fns[ind] != NULL);
-	sensor_states[ind].f = sensor_trans_fns[ind](ind, val);
+	sensor_states[ind].f = val;//sensor_trans_fns[ind](ind, val);
 	sensor_timestamps[ind] = xTaskGetTickCount();
 }
 

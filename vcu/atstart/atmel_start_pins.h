@@ -17,6 +17,7 @@
 #define GPIO_PIN_FUNCTION_C 2
 #define GPIO_PIN_FUNCTION_D 3
 
+#define PA2 GPIO(GPIO_PORTA, 2) // newly added for pwm control
 #define PA5 GPIO(GPIO_PORTA, 5)
 #define PA6 GPIO(GPIO_PORTA, 6)
 #define PA19 GPIO(GPIO_PORTA, 19)

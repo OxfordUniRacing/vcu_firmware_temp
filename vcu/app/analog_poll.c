@@ -8,6 +8,7 @@
 #include "framework/sensor/sensor.h"
 #include "framework/sensor/sensor_db.h"
 #include "analog_poll.h"
+#include "driver/log_msg.h"
 
 
 static TaskHandle_t task_handle;
@@ -49,6 +50,8 @@ static void analog_poll_task(void *p) {
 		xSemaphoreTake(sem_0, portMAX_DELAY);
 		for (unsigned int i = 0; i < sizeof(adc0_chns); i++) {
 			uint16_t x = adc_read_channel_data(0, adc0_chns[i]);
+			//if(i == 1)
+				//log_debug("%s, %d", adc0_sens[i], x);
 			sensor_update_raw(adc0_sens[i], x);
 		}
 

@@ -12,6 +12,7 @@
 #include <peripheral_clk_config.h>
 #include <utils.h>
 #include <hpl_usart_base.h>
+#include <hpl_pwm_base.h>
 
 /* The priority of the peripheral should be between the low and high interrupt priority set by chosen RTOS,
  * Otherwise, some of the RTOS APIs may fail to work inside interrupts
@@ -77,6 +78,27 @@ struct mci_os_desc IO_BUS;
 
 struct usart_os_descriptor USART_EDBG;
 uint8_t                    USART_EDBG_buffer[USART_EDBG_BUFFER_SIZE];
+
+//PWM initialization
+
+struct pwm_descriptor PWM_0;
+
+void PWM_0_PORT_init(void)
+{
+	gpio_set_pin_function(PA2, MUX_PA2A_PWM0_PWMH1);
+}
+
+void PWM_0_CLOCK_init(void)
+{
+	_pmc_enable_periph_clock(ID_PWM0);
+}
+
+void PWM_0_init(void)
+{
+	PWM_0_CLOCK_init();
+	PWM_0_PORT_init();
+	pwm_init(&PWM_0, PWM0, _pwm_get_pwm());
+}
 
 /**
  * \brief ADC initialization function
@@ -541,4 +563,6 @@ void system_init(void)
 	USB_DEVICE_INSTANCE_init();
 
 	CAN_0_init();
+	
+	//PWM_0_init();
 }

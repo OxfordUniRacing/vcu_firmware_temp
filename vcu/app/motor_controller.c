@@ -80,7 +80,7 @@ static void mc_parse_stat(struct mc_inst_t *mc, uint8_t *s) {
 	
 	struct mc_data_t recv_data;
 	char* curr = (char*) s;
-	int8_t slen = strlen(curr);
+	int slen = strlen(curr);
 
 	if (!(curr[0] == 'T' || curr[0] == 'S') || slen < 36) return;
 	// T=0.008V,a=0.008V,PWM=   0,U= 35.2V,I=  0.0A,RPM=     0,con= 21C,mot= 20C
